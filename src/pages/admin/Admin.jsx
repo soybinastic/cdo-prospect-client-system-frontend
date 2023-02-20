@@ -1,6 +1,6 @@
 
 import { Box, Collapse, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../../components/admin/AdminNavbar'
 import CloseIcon from '@mui/icons-material/Close'
 import { Dashboard } from '@mui/icons-material'
@@ -15,6 +15,7 @@ import {
   PermIdentityRounded, 
   PlaylistAddCheckCircleRounded,
   VillaOutlined } from '@mui/icons-material'
+import { getProfile } from '../../features/profile/profileSlice'
 
 function Admin() {
   const [listItem, setListItem] = useState({
@@ -45,7 +46,9 @@ function Admin() {
 
     setPrevListItem(currentListItem);
   }
-
+  useEffect(() => {
+    dispatch(getProfile({ type : 'admin' })) 
+  }, [dispatch])
   return <>
     <AdminNavbar/>
     <Drawer

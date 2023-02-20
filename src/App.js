@@ -23,6 +23,9 @@ import { PropertyDetails } from './pages/admin/sub/PropertyDetails';
 import { ClientDetails } from './pages/agent/sub/ClientDetails';
 import BuyerLogin from './pages/auth/BuyerLogin';
 import { BuyerSignup } from './pages/auth/BuyerSignup';
+import { Notification } from './pages/agent/sub/Notification';
+import { Notification as AdminNotification } from './pages/admin/sub/Notification';
+
 
 function App() {
   return <>
@@ -38,6 +41,7 @@ function App() {
           <Route path='evaluation/:evaluationId' element={<EvaluationForm/>}/>
           <Route path='appointments' element={<AppointmentList/>}/>
           <Route path='property-details/:propertyId' element={<PropertyDetails/>}/>
+          <Route path='notification' element={<AdminNotification/>}/>
         </Route>
         <Route path='agent' element={<Agent/>}>
           <Route path="" element={<Home/>}/>
@@ -46,6 +50,7 @@ function App() {
           <Route path='client-records' element={<ClientRequirementRecords/>}/>
           <Route path='client-requirements/:requirementId' element={<ClientRequirementDetails/>}/>
           <Route path='client-details/:appointmentId' element={<ClientDetails/>}/>
+          <Route path='notification' element={<Notification/>}/>
         </Route>
         <Route path="login" element={<Login/>}/>
         <Route path="buyer-login" element={<BuyerLogin/>}/>
